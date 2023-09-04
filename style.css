@@ -115,7 +115,7 @@ span{
 .row{
     font-weight: 500;
 }
-@media(max-width:760px){
+@media(max-width:1080px){
     .navbar-brand{
         margin-left: 20px;
     }
