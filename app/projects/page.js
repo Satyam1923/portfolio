@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 
 const projects = [
-    { name: "Weather App", description: "A weather forecast app using OpenWeather API.", link: "#" },
-    { name: "Music Player", description: "A web-based music streaming player.", link: "#" },
-    { name: "Blog App", description: "A blog platform using Firebase and Express.js.", link: "#" },
-    { name: "E-commerce Site", description: "A modern e-commerce web app.", link: "#" },
-    { name: "Portfolio Website", description: "A personal portfolio showcasing projects.", link: "#" },
-    { name: "Task Manager", description: "A to-do list app with cloud storage.", link: "#" }
+    { name: "Spring Music player", description: "A weather forecast app using OpenWeather API.", link: "#" },
+    { name: "Crypto", description: "A web-based music streaming player.", link: "#" },
+    { name: "Weather App", description: "A blog platform using Firebase and Express.js.", link: "#" },
+    { name: "Keeper App", description: "A modern e-commerce web app.", link: "#" },
+    { name: "Drum kit", description: "A personal portfolio showcasing projects.", link: "#" },
+    { name: "Dice Gamer", description: "A to-do list app with cloud storage.", link: "#" }
 ];
 
 export default function Projects() {
