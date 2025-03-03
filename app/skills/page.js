@@ -38,7 +38,7 @@ export default function Skills() {
     return (
         <section className="min-h-screen flex flex-col justify-center items-center text-white py-12">
             <h2 className={`text-4xl font-bold mb-8 ${playfair.className }`}>My Skills</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 px-6 md:px-12 max-w-6xl">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 px-6 md:px-12 max-w-7xl">
                 {skills.map((skill, index) => (
                     <motion.a
                         key={index}
@@ -46,8 +46,8 @@ export default function Skills() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex flex-col items-center text-center"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        whileHover={{ scale: 1.5 }}
+                        transition={{ duration: 1, type:"spring" }}
                     >
                         <motion.div className="text-5xl mb-2">
                             {skill.icon}
