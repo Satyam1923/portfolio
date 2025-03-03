@@ -6,12 +6,11 @@ import {
 } from "react-icons/fa";
 import {
     SiC, SiCplusplus, SiPython, SiFirebase, SiExpress, SiTailwindcss,
-    SiRedux, SiUbuntu, SiPostman, SiMysql
+    SiRedux, SiUbuntu, SiPostman, SiMysql, SiArduino
 } from "react-icons/si";
 import { motion } from "framer-motion";
 import { Playfair_Display } from 'next/font/google';
 const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '700'] });
-
 
 const skills = [
     { icon: <FaHtml5 className="text-orange-500" />, name: "HTML", link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
@@ -31,13 +30,14 @@ const skills = [
     { icon: <FaGithub className="text-white" />, name: "GitHub", link: "https://github.com/" },
     { icon: <SiUbuntu className="text-orange-500" />, name: "Linux", link: "https://ubuntu.com/" },
     { icon: <SiPostman className="text-orange-400" />, name: "Postman", link: "https://www.postman.com/" },
-    { icon: <SiMysql className="text-blue-600" />, name: "MySQL", link: "https://www.mysql.com/" }
+    { icon: <SiMysql className="text-blue-600" />, name: "MySQL", link: "https://www.mysql.com/" },
+    { icon: <SiArduino className="text-teal-600 " />, name: "Arduino", link: "https://www.arduino.cc/" }
 ];
 
 export default function Skills() {
     return (
         <section className="min-h-screen flex flex-col justify-center items-center text-white py-12">
-            <h2 className={`text-4xl font-bold mb-8 ${playfair.className }`}>My Skills</h2>
+            <h2 className={`text-4xl font-bold mb-8 ${playfair.className}`}>My Skills</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 px-6 md:px-12 max-w-7xl">
                 {skills.map((skill, index) => (
                     <motion.a
@@ -47,7 +47,7 @@ export default function Skills() {
                         rel="noopener noreferrer"
                         className="flex flex-col items-center text-center"
                         whileHover={{ scale: 1.5 }}
-                        transition={{ duration: 1, type:"spring" }}
+                        transition={{ duration: 1, type: "spring" }}
                     >
                         <motion.div className="text-5xl mb-2">
                             {skill.icon}

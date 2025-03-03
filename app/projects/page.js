@@ -8,7 +8,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Playfair_Display } from "next/font/google";
 
+
+
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] });
+
 export default function Home() {
     const [hoveredIndex, setHoveredIndex] = useState(0);
 
@@ -38,16 +41,15 @@ export default function Home() {
                                 type: "keyframes"
                             }}
                             exit={{ scale: 0.4 }}
-                            className="text-black font-bold h-3/4 w-2/3 rounded-2xl bg-white flex justify-center items-center text-2xl"
+                            className={` font-bold h-3/4 w-2/3 rounded-2xl flex justify-center items-center`}
                         >
-                            <Image src={img} alt={name} width={1080} height={960} className="rounded-2xl w-full h-full" />
+                            <Image src={img} alt={name} width={1080} height={960} className={`rounded-2xl w-full h-full `} />
                         </motion.div>
-                    ) : <TbMaximize className='w-22 h-12' />}
+                    ) : <TbMaximize className='w-22 h-12 text-black' />}
 
                     {hoveredIndex === index && (
-                        <motion.div className='absolute rounded-tr-4xl text-4xl bottom-0 left-0 flex align-middle items-center bg-[#0a0a0a] w-1/4 h-1/5'>
+                        <motion.div className='absolute w-54 h-20 rounded-tr-4xl text-4xl bottom-0 left-0 flex align-middle items-center bg-[#0a0a0a] '>
                             <div className='relative h-full w-full'>
-
                                 <div className='absolute w-8 h-8 top-0 -translate-y-full bg-[#0a0a0a] z-10' />
                                 <div className={`absolute w-8 h-8 top-0 -translate-y-full rounded-bl-full ${bgColor} z-10`} />
                                 <div className={`p-6 pl-12 text-4xl h-full ${playfair.className}`}>{name}</div>
@@ -58,7 +60,7 @@ export default function Home() {
                     )}
                     {hoveredIndex === index && (
                         <div
-                            className="absolute w-24 h-24 rounded-bl-4xl overflow-visible text-4xl top-0 right-0 flex flex-col align-middle items-center bg-[#0a0a0a]"
+                            className="absolute w-20 h-20 rounded-bl-4xl overflow-visible text-4xl top-0 right-0 flex flex-col align-middle items-center bg-[#0a0a0a]"
                         >
                             <div className='relative h-full w-full flex align-middle items-center'>
                                 <div className='absolute m-7'><Link href={link}><FaLink className='w-8 h-8' /></Link></div>

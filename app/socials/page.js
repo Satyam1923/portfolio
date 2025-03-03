@@ -1,18 +1,21 @@
-'use client'
+"use client";
 
 import { FaGithub, FaInstagram, FaEnvelopeOpenText } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Playfair_Display } from "next/font/google";
 
 const contacts = [
     { icon: <FaGithub className="text-white" />, name: "GitHub", link: "https://github.com/Satyam1923" },
-    { icon: <FaInstagram className="text-pink-500" />, name: "Instagram", link: "https://instagram.com/yourusername" },
+    { icon: <FaInstagram className="text-pink-500" />, name: "Instagram", link: "https://www.instagram.com/_satyam_rathor_/" },
     { icon: <FaEnvelopeOpenText className="text-blue-400" />, name: "Email", link: "mailto:satyamr1923@gmail.com" }
 ];
+
+const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function Contact() {
     return (
         <section className="min-h-screen flex flex-col justify-center items-center text-white py-12">
-            <h2 className="text-4xl font-bold mb-8">Contact Me</h2>
+            <h2 className={`text-4xl font-bold mb-8 ${playfair.className}`}>Contact Me</h2>
             <div className="flex gap-8">
                 {contacts.map((contact, index) => (
                     <motion.a
