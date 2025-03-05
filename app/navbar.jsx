@@ -99,7 +99,7 @@ export default function Navbar() {
               key={index}
               href={link.path}
               onClick={() => setIsOpen(false)}
-              className="py-2 text-black text-lg font-semibold transition-colors duration-300 hover:bg-black hover:text-white w-full text-center rounded-md"
+              className="py-2 text-black text-lg  duration-300 w-full text-center rounded-md"
             >
               {link.name}
             </Link>

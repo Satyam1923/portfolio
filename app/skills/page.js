@@ -37,7 +37,7 @@ const skills = [
 export default function Skills() {
     return (
         <section className="min-h-screen flex flex-col justify-center items-center text-white py-12">
-            <h2 className={`text-4xl font-bold mb-8 ${playfair.className}`}>My Skills</h2>
+            <h2 className={`text-3xl md:5xl font-bold mb-8 ${playfair.className}`}>My Skills</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 px-6 md:px-12 max-w-7xl">
                 {skills.map((skill, index) => (
                     <motion.a

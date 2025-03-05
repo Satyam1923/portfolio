@@ -8,10 +8,10 @@ export default function About() {
   const name = "Satyam Rathor";
 
   return (
-    <div className="flex justify-center items-center h-screen flex-col">
+    <div className="flex w-screen h-screen justify-center items-center flex-col">
     
       <motion.h1
-        className={`text-8xl font-semibold ${playfair.className} flex`}
+        className={` text-5xl md:text-8xl font-semibold ${playfair.className} flex`}
         initial="hidden"
         animate="visible"
         variants={{
