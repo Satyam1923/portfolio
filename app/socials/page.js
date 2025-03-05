@@ -15,7 +15,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] }
 export default function Contact() {
     return (
         <section className="md:h-screen flex flex-col justify-center items-center text-white py-12">
-            <h2 className={`text-4xl font-bold mb-8 ${playfair.className}`}>Contact Me</h2>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-8 ${playfair.className}`}>Contact Me</h2>
             <div className="flex gap-8">
                 {contacts.map((contact, index) => (
                     <motion.a

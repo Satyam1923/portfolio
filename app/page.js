@@ -8,10 +8,9 @@ export default function About() {
   const name = "Satyam Rathor";
 
   return (
-    <div className="flex w-screen h-screen justify-center items-center flex-col">
-    
+    <div className="relative w-screen h-screen flex items-center justify-center flex-col">
       <motion.h1
-        className={` text-5xl md:text-8xl font-semibold ${playfair.className} flex`}
+        className={`absolute top-[25%] text-5xl md:text-8xl font-semibold ${playfair.className} flex text-center md:static`}
         initial="hidden"
         animate="visible"
         variants={{
@@ -31,8 +30,7 @@ export default function About() {
           </motion.span>
         ))}
       </motion.h1>
-
-      <h3 className="fixed bottom-10 left-10 text-lg">
+      <h3 className="absolute bottom-12 left-6 md:fixed md:bottom-10 md:left-10 text-lg">
         on the go <br />
         full stack web developer
       </h3>

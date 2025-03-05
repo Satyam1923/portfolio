@@ -75,16 +75,17 @@ export default function Home() {
     ];
 
     return (
-        <div className="flex justify-center items-center h-screen w-full gap-4 px-4">
+        <div className="flex justify-center items-center flex-col md:flex-row h-screen w-full gap-4 px-4">
             {projects.map(({ name, bgColor, link, img }, index) => (
                 <motion.div
                     key={index}
-                    className={`h-2/3 $ relative rounded-4xl flex flex-col justify-center items-center gap-2`}
+                    className={`md:h-2/3 h-52 relative rounded-4xl flex flex-col justify-center items-center gap-2`}
                     style={{ backgroundColor: bgColor }} 
                     initial={{ width: "10%" }}
                     animate={{ width: hoveredIndex === index ? "66%" : "10%" }}
                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
                     onHoverStart={() => setHoveredIndex(index)}
+                    onClick={()=>setHoveredIndex(index)}
                 >
                     {hoveredIndex === index ? (
                         <HoverableImage img={img} name={name} />
