@@ -7,6 +7,8 @@ import { FaLink } from "react-icons/fa";
 import Link from 'next/link';
 import Image from 'next/image';
 import { Playfair_Display } from "next/font/google";
+import useIsMobile from './useIsMobile';
+
 
 const shadow = { boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px" };
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] });
@@ -55,7 +57,7 @@ const HoverableImage = ({ img, name }) => {
                 alt={name}
                 width={1080}
                 height={960}
-                className="rounded-2xl w-full h-full"
+                className="rounded-2xl h-3/4  w-full md:h-full"
                 style={{ boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px" }}
             />
         </motion.div>
@@ -66,10 +68,11 @@ const HoverableImage = ({ img, name }) => {
 
 export default function Home() {
     const [hoveredIndex, setHoveredIndex] = useState(0);
-    
+    const isMobile = useIsMobile();
     const projects = [
         {
-            name: "Spring", bgColor: "#b7bdc2", link: "https://spring-music-player.vercel.app/", img: "/spring.png" },
+            name: "Spring", bgColor: "#b7bdc2", link: "https://spring-music-player.vercel.app/", img: "/spring.png"
+        },
         { name: "Veridoc", bgColor: "#F9D94A", link: "https://crypto-zeta-dun.vercel.app/", img: "/veridoc2.png" },
         { name: "Keeper", bgColor: "#262341", link: "https://keeper-app-rouge.vercel.app/", img: "/keeper.png" }
     ];
@@ -80,23 +83,29 @@ export default function Home() {
                 <motion.div
                     key={index}
                     className={`md:h-2/3 h-52 relative rounded-4xl flex flex-col justify-center items-center gap-2`}
-                    style={{ backgroundColor: bgColor }} 
-                    initial={{ width: "10%" }}
-                    animate={{ width: hoveredIndex === index ? "66%" : "10%" }}
+                    style={{ backgroundColor: bgColor }}
+                    initial={{
+                        width: isMobile ? "100%" : "10%",
+                        height: isMobile ? "60px" : "70%"
+                    }}
+                    animate={{
+                        width: hoveredIndex === index ? (isMobile ? "100%" : "66%") : (isMobile ? "100%" : "10%"),
+                        height: hoveredIndex === index ? (isMobile ? "380px" : "70%") : (isMobile ? "60px" : "70%")
+                    }}
                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
                     onHoverStart={() => setHoveredIndex(index)}
-                    onClick={()=>setHoveredIndex(index)}
+                    onClick={() => setHoveredIndex(index)}
                 >
                     {hoveredIndex === index ? (
                         <HoverableImage img={img} name={name} />
                     ) : <TbMaximize className='w-22 h-12 text-black' />}
 
                     {hoveredIndex === index && (
-                        <motion.div className='absolute w-54 h-24 rounded-tr-4xl text-4xl bottom-0 left-0 flex align-middle items-center bg-[#0a0a0a] '>
+                        <motion.div className='absolute h-15 w-32 md:w-54 md:h-24 rounded-tr-4xl text-4xl bottom-0 left-0 flex align-middle items-center bg-[#0a0a0a] '>
                             <div className='relative h-full w-full'>
                                 <div className='absolute w-8 h-8 top-0 -translate-y-full bg-[#0a0a0a] z-10' />
                                 <div className={`absolute w-8 h-8 top-0 -translate-y-full rounded-bl-full  z-10`} style={{ backgroundColor: bgColor }} />
-                                <div className={`p-6 pl-12 text-4xl h-full ${playfair.className}`}>{name}</div>
+                                <div className={` p-5 md:p-6 md:pl-12 text-2xl md:text-4xl h-full ${playfair.className}`}>{name}</div>
                                 <div className='absolute w-8 h-8 left-full -translate-y-full bg-[#0a0a0a] z-10' />
                                 <div className={`absolute w-8 h-8 left-full -translate-y-full rounded-bl-full z-20`} style={{ backgroundColor: bgColor }} />
                             </div>
@@ -104,7 +113,7 @@ export default function Home() {
                     )}
                     {hoveredIndex === index && (
                         <div
-                            className="absolute w-20 h-20 rounded-bl-4xl overflow-visible text-4xl top-0 right-0 flex flex-col align-middle items-center bg-[#0a0a0a]"
+                            className="absolute h-15 w-15 md:w-20 md:h-20 rounded-bl-4xl overflow-visible text-4xl top-0 right-0 flex flex-col align-middle items-center bg-[#0a0a0a]"
                         >
                             <div className='relative h-full w-full flex align-middle items-center'>
                                 <div className='absolute m-7'><Link href={link}><FaLink className='w-8 h-8' /></Link></div>
