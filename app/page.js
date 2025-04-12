@@ -8,9 +8,9 @@ export default function About() {
   const name = "Satyam Rathor";
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center flex-col">
+    <div className="w-screen h-screen flex items-center  md:justify-center flex-col">
       <motion.h1
-        className={` text-5xl md:text-8xl font-semibold ${playfair.className} flex text-center md:static`}
+        className={`mt-64 md:mt-0 text-5xl md:text-8xl font-semibold ${playfair.className} flex text-center md:static`}
         initial="hidden"
         animate="visible"
         variants={{
