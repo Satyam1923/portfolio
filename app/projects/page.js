@@ -1,6 +1,4 @@
 'use client';
-
-import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useState } from 'react';
 import { TbMaximize } from "react-icons/tb";
 import { FaLink } from "react-icons/fa";
@@ -8,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Playfair_Display } from "next/font/google";
 import useIsMobile from './useIsMobile';
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 
 
 const shadow = { boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px" };
@@ -15,8 +14,10 @@ const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] }
 
 
 const HoverableImage = ({ img, name }) => {
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
+    const rawX = useMotionValue(0.5);
+    const rawY = useMotionValue(0.5);
+    const x = useSpring(rawX, { stiffness: 300, damping: 20 });
+    const y = useSpring(rawY, { stiffness: 300, damping: 20 });
 
     const translateX = useTransform(x, [0, 1], [-10, 10]);
     const translateY = useTransform(y, [0, 1], [-10, 10]);
@@ -28,28 +29,30 @@ const HoverableImage = ({ img, name }) => {
         const offsetX = (clientX - left) / width;
         const offsetY = (clientY - top) / height;
 
-        x.set(offsetX);
-        y.set(offsetY);
+        rawX.set(offsetX);
+        rawY.set(offsetY);
     };
 
     return (
         <motion.div
             className="relative h-3/4 w-2/3 rounded-2xl flex justify-center items-center"
             onMouseMove={handleMouseMove}
-            onMouseLeave={() => { x.set(0.5); y.set(0.5); }}
-            style={{ translateX, translateY }}
+            onMouseLeave={() => {
+                rawX.set(0.5);
+                rawY.set(0.5);
+            }}
+            style={{
+                translateX,
+                translateY
+            }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
+            exit={{ opacity: 0, scale: 0.7 }}
             transition={{
                 type: "spring",
                 stiffness: 50,
                 damping: 10,
                 duration: 3
-            }}
-            exittransition={{
-                duration: 1.2,
-                ease: "easeInOut"
             }}
         >
             <Image
@@ -57,11 +60,12 @@ const HoverableImage = ({ img, name }) => {
                 alt={name}
                 width={1080}
                 height={960}
-                className="rounded-2xl h-3/4  w-full md:h-full"
-                style={{ boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px" }}
+                className="rounded-2xl h-3/4 w-full md:h-full"
+                style={{
+                    boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
+                }}
             />
         </motion.div>
-
     );
 };
 

@@ -50,13 +50,15 @@ export default function Navbar() {
         {...fadeDownAnimation}
         className="absolute lg:block top-4 left-5"
       >
-        <Image
-          src="/sr.svg"
-          width={60}
-          height={60}
-          alt="Logo"
-          className="rounded-full filter invert"
-        />
+        <Link href={'/'}>
+          <Image
+            src="/sr.svg"
+            width={60}
+            height={60}
+            alt="Logo"
+            className="rounded-full filter invert"
+          />
+        </Link>
       </motion.div>
 
       <motion.div {...fadeDownAnimation} className="absolute top-5 right-5">
