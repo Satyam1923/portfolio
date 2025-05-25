@@ -8,10 +8,7 @@ import { Playfair_Display } from "next/font/google";
 import useIsMobile from './useIsMobile';
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 
-
-const shadow = { boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px" };
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] });
-
 
 const HoverableImage = ({ img, name }) => {
     const rawX = useMotionValue(0.5);
@@ -69,7 +66,6 @@ const HoverableImage = ({ img, name }) => {
     );
 };
 
-
 export default function Home() {
     const [hoveredIndex, setHoveredIndex] = useState(0);
     const isMobile = useIsMobile();
@@ -78,11 +74,14 @@ export default function Home() {
             name: "Spring", bgColor: "#b7bdc2", link: "https://spring-music-player.vercel.app/", img: "/spring.png"
         },
         { name: "Veridoc", bgColor: "#F9D94A", link: "https://crypto-zeta-dun.vercel.app/", img: "/veridoc2.png" },
-        { name: "Keeper", bgColor: "#262341", link: "https://keeper-app-rouge.vercel.app/", img: "/keeper.png" }
+        { name: "Outflo Task", bgColor: "#FF6584", link: "https://out-flo-assignment-ovr6.vercel.app/", img: "/outflo.png" },
+        { name: "Keeper", bgColor: "#262341", link: "https://keeper-app-rouge.vercel.app/", img: "/keeper.png" },
+        { name: "Simon Game", bgColor: "#6C63FF", link: "https://satyam1923.github.io/The-SImon-Game/", img: "/SimonGame.png" },
+        
     ];
 
     return (
-        <div className="flex justify-center items-center flex-col md:flex-row h-screen w-full gap-4 px-4">
+        <div className="flex justify-center items-center flex-col md:flex-row h-screen w-full gap-4 px-4 overflow-x-auto">
             {projects.map(({ name, bgColor, link, img }, index) => (
                 <motion.div
                     key={index}
@@ -133,4 +132,3 @@ export default function Home() {
         </div>
     );
 }
-
