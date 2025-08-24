@@ -32,7 +32,7 @@ export default function About() {
       </motion.h1>
       <h3 className="bottom-10 left-10 absolute md:bottom-10 md:left-10 text-lg">
         on the go <br />
-        full stack web developer
+        Software Developer
       </h3>
     </div>
   );

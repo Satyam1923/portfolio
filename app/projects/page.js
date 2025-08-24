@@ -71,11 +71,11 @@ export default function Home() {
     const isMobile = useIsMobile();
     const projects = [
         {
-            name: "Spring", bgColor: "#b7bdc2", link: "https://spring-music-player.vercel.app/", img: "/spring.png"
+            name: "Spring", bgColor: "#b7bdc2", link: "https://spring-music-player.vercel.app/", img: "/spring2.png"
         },
+        { name: "Open Signals", bgColor: "#262341", link: "https://opensignals-frontend.vercel.app/", img: "/opensignals.png" },
         { name: "Veridoc", bgColor: "#F9D94A", link: "https://crypto-zeta-dun.vercel.app/", img: "/veridoc2.png" },
         { name: "Outflo Task", bgColor: "#FF6584", link: "https://out-flo-assignment-ovr6.vercel.app/", img: "/outflo.png" },
-        { name: "Keeper", bgColor: "#262341", link: "https://keeper-app-rouge.vercel.app/", img: "/keeper.png" },
         { name: "Simon Game", bgColor: "#6C63FF", link: "https://satyam1923.github.io/The-SImon-Game/", img: "/SimonGame.png" },
         
     ];
