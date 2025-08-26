@@ -76,7 +76,7 @@ export default function Home() {
         { name: "Open Signals", bgColor: "#262341", link: "https://opensignals-frontend.vercel.app/", img: "/opensignals.png" },
         { name: "Veridoc", bgColor: "#F9D94A", link: "https://crypto-zeta-dun.vercel.app/", img: "/veridoc2.png" },
         { name: "Outflo Task", bgColor: "#FF6584", link: "https://out-flo-assignment-ovr6.vercel.app/", img: "/outflo.png" },
-        { name: "Simon Game", bgColor: "#6C63FF", link: "https://satyam1923.github.io/The-SImon-Game/", img: "/SimonGame.png" },
+        { name: "Web Agent", bgColor: "#6C63FF", link: "https://github.com/Satyam1923/Web-Search-Agent-backend", img: "/agent.png" },
         
     ];
 
