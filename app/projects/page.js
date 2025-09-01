@@ -71,7 +71,7 @@ export default function Home() {
     const isMobile = useIsMobile();
     const projects = [
         {
-            name: "Spring", bgColor: "#b7bdc2", link: "https://spring-music-player.vercel.app/", img: "/spring2.png"
+            name: "Spring", bgColor: "#b7bdc2", link: "https://spring-music-player-n27p.vercel.app", img: "/spring2.png"
         },
         { name: "Open Signals", bgColor: "#262341", link: "https://opensignals-frontend.vercel.app/", img: "/opensignals.png" },
         { name: "Veridoc", bgColor: "#F9D94A", link: "https://crypto-zeta-dun.vercel.app/", img: "/veridoc2.png" },
